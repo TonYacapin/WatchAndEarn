@@ -2,22 +2,49 @@
 <html>
 <head>
     <title>Register</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
-    <h2>Register</h2>
-    <?php echo validation_errors(); ?>
-    <?php echo form_open('auth/register'); ?>
-        <label for="username">Username:</label>
-        <input type="text" name="username" value="<?php echo set_value('username'); ?>" /><br />
-        <label for="password">Password:</label>
-        <input type="password" name="password" /><br />
-        <button type="submit">Register</button>
-    <?php echo form_close(); ?>
-    
-    <p>Already have an account? <a href="<?php echo site_url('auth'); ?>">Login here</a></p>
-    
-    <?php if($this->session->flashdata('error')): ?>
-        <p><?php echo $this->session->flashdata('error'); ?></p>
-    <?php endif; ?>
+<body class="bg-gray-100 text-gray-900">
+
+    <header class="bg-blue-500 text-white text-center py-4">
+        <h1 class="text-3xl font-bold">WatchAndEarn</h1>
+    </header>
+
+    <div class="container mx-auto mt-10">
+        <div class="max-w-md mx-auto bg-white p-8 border border-gray-300 rounded-lg shadow-lg">
+            <h2 class="text-2xl font-semibold text-blue-500 mb-6 text-center">Register</h2>
+
+            <?php if(validation_errors()): ?>
+                <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
+                    <?php echo validation_errors(); ?>
+                </div>
+            <?php endif; ?>
+
+            <?php echo form_open('auth/register'); ?>
+                <div class="mb-4">
+                    <label for="username" class="block text-gray-700">Username:</label>
+                    <input type="text" name="username" class="mt-1 p-2 w-full border border-gray-300 rounded" value="<?php echo set_value('username'); ?>">
+                </div>
+                <div class="mb-4">
+                    <label for="password" class="block text-gray-700">Password:</label>
+                    <input type="password" name="password" class="mt-1 p-2 w-full border border-gray-300 rounded">
+                </div>
+                <button type="submit" class="w-full bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Register</button>
+            <?php echo form_close(); ?>
+
+            <p class="mt-4 text-center">Already have an account? <a href="<?php echo site_url('auth'); ?>" class="text-blue-500 hover:text-blue-700">Login here</a></p>
+
+            <?php if($this->session->flashdata('error')): ?>
+                <div class="mt-4 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded">
+                    <?php echo $this->session->flashdata('error'); ?>
+                </div>
+            <?php endif; ?>
+        </div>
+    </div>
+
+    <footer class="bg-gray-300 text-center text-gray-700 py-4 mt-10">
+        <p>&copy; 2024 WatchAndEarn All Rights Reserved</p>
+    </footer>
+
 </body>
 </html>

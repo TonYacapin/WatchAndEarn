@@ -1,12 +1,15 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class User_model extends CI_Model {
-    public function __construct() {
+class User_model extends CI_Model
+{
+    public function __construct()
+    {
         parent::__construct();
     }
 
-    public function login($username, $password) {
+    public function login($username, $password)
+    {
         $this->db->where('username', $username);
         $query = $this->db->get('users');
         $user = $query->row();
@@ -16,12 +19,34 @@ class User_model extends CI_Model {
         return false;
     }
 
-    public function register($username, $password) {
+    public function register($username, $password, $role = 'customer')
+    {
         $data = array(
             'username' => $username,
-            'password' => password_hash($password, PASSWORD_BCRYPT)
+            'password' => password_hash($password, PASSWORD_BCRYPT),
+            'role' => $role
         );
         return $this->db->insert('users', $data);
     }
+
+    public function get_user_by_id($user_id)
+    {
+        return $this->db->get_where('users', array('id' => $user_id))->row();
+    }
+
+    public function update_points($username, $points)
+    {
+        $this->db->set('points', 'points + ' . (int)$points, FALSE);
+        $this->db->where('username', $username);
+        return $this->db->update('users');
+    }
+    public function add_transaction($user_id, $points, $cash_amount)
+    {
+        $data = array(
+            'user_id' => $user_id,
+            'points' => $points,
+            'cash_amount' => $cash_amount
+        );
+        return $this->db->insert('transactions', $data);
+    }
 }
-?>

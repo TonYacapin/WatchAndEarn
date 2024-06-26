@@ -50,6 +50,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 $route['default_controller'] = 'auth';
-$route['login'] = 'auth/login';
-$route['logout'] = 'auth/logout';
-$route['dashboard'] = 'auth/dashboard';
+$route['auth/register'] = 'auth/register';
+$route['auth/watch_video'] = 'auth/watch_video';
+$route['auth/convert_points_to_cash'] = 'auth/convert_points_to_cash';
+$route['404_override'] = '';
+$route['translate_uri_dashes'] = FALSE;
+$route['auth/add_video'] = 'auth/add_video';
