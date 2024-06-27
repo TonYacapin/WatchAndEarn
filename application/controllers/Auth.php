@@ -91,37 +91,55 @@ class Auth extends CI_Controller
         }
     }
 
-    public function watch_video() {
-        if (!$this->session->userdata('logged_in')) {
-            redirect('auth');
-        }
-
-        $this->load->model('Video_model');
-        $video = $this->video_model->get_random_video();
-
-        $data['video'] = $video;
-        $this->load->view('watch_video', $data);
-    }
-
-    public function earn_points($video_id)
+    public function watch_video()
     {
         if (!$this->session->userdata('logged_in')) {
             redirect('auth');
         }
 
-        $video = $this->video_model->get_video($video_id); // Use Video_model directly
+        // Get a random video from your database
+        $video = $this->video_model->get_random_video();
 
         if ($video) {
-            $user_id = $this->session->userdata('user_id');
-            $this->user_model->update_points($user_id, $video->points_reward); // Update points using user ID
-
-            $this->session->set_flashdata('success', 'You have earned ' . $video->points_reward . ' points!');
+            $data['video'] = $video;
+            $this->load->view('watch_video', $data);
         } else {
-            $this->session->set_flashdata('error', 'Invalid video.');
+            // Handle error if no video is found
+            $this->session->set_flashdata('error', 'No video available.');
+            redirect('auth/dashboard');
         }
-
-        redirect('auth/dashboard');
     }
+
+    public function earn_points($video_id)
+{
+    if (!$this->session->userdata('logged_in')) {
+        redirect('auth');
+    }
+
+    // Validate if the video ID exists and is valid in your application
+    $video = $this->video_model->get_video($video_id);
+
+    if ($video) {
+        // Simulate rewarding points after watching the video
+        $user_id = $this->session->userdata('user_id');
+        
+        // Debugging
+        log_message('debug', 'User ID: ' . $user_id);
+        log_message('debug', 'Video Points Reward: ' . $video->points_reward);
+
+        $this->user_model->update_points($user_id, $video->points_reward);
+
+        // Check if points were updated successfully
+        $user = $this->user_model->get_user_by_id($user_id);
+        log_message('debug', 'Updated Points: ' . $user->points);
+
+        $this->session->set_flashdata('success', 'You have earned ' . $video->points_reward . ' points!');
+    } else {
+        $this->session->set_flashdata('error', 'Invalid video.');
+    }
+
+    redirect('auth/dashboard');
+}
     public function convert_points_to_cash()
     {
         $user_id = $this->session->userdata('user_id');
@@ -142,7 +160,13 @@ class Auth extends CI_Controller
         }
         redirect('auth/dashboard');
     }
-    public function add_video() {
+    public function add_video()
+    {
+        // Check if user is logged in
+        if (!$this->session->userdata('logged_in')) {
+            redirect('auth'); // Redirect to login page if not logged in
+        }
+    
         $this->form_validation->set_rules('title', 'Title', 'required');
         $this->form_validation->set_rules('url', 'Video URL', 'required');
         $this->form_validation->set_rules('points_reward', 'Points Reward', 'required|numeric');

@@ -34,10 +34,10 @@ class User_model extends CI_Model
         return $this->db->get_where('users', array('id' => $user_id))->row();
     }
 
-    public function update_points($username, $points)
+    public function update_points($user_id, $points)
     {
         $this->db->set('points', 'points + ' . (int)$points, FALSE);
-        $this->db->where('username', $username);
+        $this->db->where('id', $user_id);
         return $this->db->update('users');
     }
     public function add_transaction($user_id, $points, $cash_amount)
