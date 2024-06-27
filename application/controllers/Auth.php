@@ -187,6 +187,59 @@ class Auth extends CI_Controller
             }
         }
     }
+
+
+    public function list_videos()
+{
+    if (!$this->session->userdata('logged_in')) {
+        redirect('auth');
+    }
+
+    $data['videos'] = $this->video_model->get_all_videos();
+    $this->load->view('list_videos', $data);
+}
+
+public function edit_video($video_id)
+{
+    if (!$this->session->userdata('logged_in')) {
+        redirect('auth');
+    }
+
+    $this->form_validation->set_rules('title', 'Title', 'required');
+    $this->form_validation->set_rules('url', 'Video URL', 'required');
+    $this->form_validation->set_rules('points_reward', 'Points Reward', 'required|numeric');
+
+    if ($this->form_validation->run() === FALSE) {
+        $data['video'] = $this->video_model->get_video($video_id);
+        $this->load->view('edit_video', $data);
+    } else {
+        $title = $this->input->post('title');
+        $url = $this->input->post('url');
+        $points_reward = $this->input->post('points_reward');
+
+        if ($this->video_model->update_video($video_id, $title, $url, $points_reward)) {
+            $this->session->set_flashdata('success', 'Video updated successfully.');
+            redirect('auth/list_videos');
+        } else {
+            $this->session->set_flashdata('error', 'Failed to update video.');
+            redirect('auth/edit_video/'.$video_id);
+        }
+    }
+}
+
+public function delete_video($video_id)
+{
+    if (!$this->session->userdata('logged_in')) {
+        redirect('auth');
+    }
+
+    if ($this->video_model->delete_video($video_id)) {
+        $this->session->set_flashdata('success', 'Video deleted successfully.');
+    } else {
+        $this->session->set_flashdata('error', 'Failed to delete video.');
+    }
+    redirect('auth/list_videos');
+}
 }
 ?>
 

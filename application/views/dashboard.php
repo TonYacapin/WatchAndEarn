@@ -136,7 +136,7 @@
 
         <div class="action-box">
             <i class="fas fa-plus-circle"></i>
-            <a href="<?php echo site_url('auth/add_video'); ?>">Add Video</a>
+            <a href="<?php echo site_url('auth/list_videos'); ?>">Manage Videos</a>
         </div>
 
         <div class="action-box">

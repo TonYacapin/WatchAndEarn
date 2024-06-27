@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 /*
 | -------------------------------------------------------------------------
@@ -56,3 +56,8 @@ $route['auth/convert_points_to_cash'] = 'auth/convert_points_to_cash';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['auth/add_video'] = 'auth/add_video';
+
+$route['auth/list_videos'] = 'auth/list_videos';
+
+$route['auth/edit_video/(:num)'] = 'auth/edit_video/$1';
+$route['auth/delete_video/(:num)'] = 'auth/delete_video/$1';
