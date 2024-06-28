@@ -140,6 +140,11 @@
         </div>
 
         <div class="action-box">
+            <i class="fas fa-plus-circle"></i>
+            <a href="<?php echo site_url('auth/list_users'); ?>">Manage Users</a>
+        </div>
+
+        <div class="action-box">
             <i class="fas fa-sign-out-alt"></i>
             <a href="<?php echo site_url('auth/logout'); ?>" class="text-red-500 hover:text-red-700">Logout</a>
         </div>

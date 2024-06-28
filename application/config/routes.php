@@ -61,3 +61,8 @@ $route['auth/list_videos'] = 'auth/list_videos';
 
 $route['auth/edit_video/(:num)'] = 'auth/edit_video/$1';
 $route['auth/delete_video/(:num)'] = 'auth/delete_video/$1';
+
+$route['auth/list_users'] = 'auth/list_users';
+$route['auth/add_user'] = 'auth/add_user';
+$route['auth/edit_user/(:num)'] = 'auth/edit_user/$1';
+$route['auth/delete_user/(:num)'] = 'auth/delete_user/$1';

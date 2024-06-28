@@ -49,4 +49,26 @@ class User_model extends CI_Model
         );
         return $this->db->insert('transactions', $data);
     }
+
+    public function get_all_users()
+{
+    return $this->db->get('users')->result();
+}
+
+public function update_user($user_id, $username, $role)
+{
+    $data = array(
+        'username' => $username,
+        'role' => $role
+    );
+
+    $this->db->where('id', $user_id);
+    return $this->db->update('users', $data);
+}
+
+public function delete_user($user_id)
+{
+    $this->db->where('id', $user_id);
+    return $this->db->delete('users');
+}
 }

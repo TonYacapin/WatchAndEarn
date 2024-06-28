@@ -240,6 +240,84 @@ public function delete_video($video_id)
     }
     redirect('auth/list_videos');
 }
+
+
+public function list_users()
+{
+    if (!$this->session->userdata('logged_in')) {
+        redirect('auth');
+    }
+
+    $data['users'] = $this->user_model->get_all_users();
+    $this->load->view('list_users', $data);
+}
+
+public function add_user()
+{
+    if (!$this->session->userdata('logged_in')) {
+        redirect('auth');
+    }
+
+    $this->form_validation->set_rules('username', 'Username', 'required|is_unique[users.username]');
+    $this->form_validation->set_rules('password', 'Password', 'required');
+
+    if ($this->form_validation->run() === FALSE) {
+        $this->load->view('add_user');
+    } else {
+        $username = $this->input->post('username');
+        $password = $this->input->post('password');
+        $role = $this->input->post('role');
+
+        if ($this->user_model->register($username, $password, $role)) {
+            $this->session->set_flashdata('success', 'User added successfully.');
+            redirect('auth/list_users');
+        } else {
+            $this->session->set_flashdata('error', 'Failed to add user.');
+            redirect('auth/add_user');
+        }
+    }
+}
+
+public function edit_user($user_id)
+{
+    if (!$this->session->userdata('logged_in')) {
+        redirect('auth');
+    }
+
+    $this->form_validation->set_rules('username', 'Username', 'required');
+    $this->form_validation->set_rules('role', 'Role', 'required');
+
+    if ($this->form_validation->run() === FALSE) {
+        $data['user'] = $this->user_model->get_user_by_id($user_id);
+        $this->load->view('edit_user', $data);
+    } else {
+        $username = $this->input->post('username');
+        $role = $this->input->post('role');
+
+        if ($this->user_model->update_user($user_id, $username, $role)) {
+            $this->session->set_flashdata('success', 'User updated successfully.');
+            redirect('auth/list_users');
+        } else {
+            $this->session->set_flashdata('error', 'Failed to update user.');
+            redirect('auth/edit_user/'.$user_id);
+        }
+    }
+}
+
+public function delete_user($user_id)
+{
+    if (!$this->session->userdata('logged_in')) {
+        redirect('auth');
+    }
+
+    if ($this->user_model->delete_user($user_id)) {
+        $this->session->set_flashdata('success', 'User deleted successfully.');
+    } else {
+        $this->session->set_flashdata('error', 'Failed to delete user.');
+    }
+    redirect('auth/list_users');
+}
+
 }
 ?>
 
