@@ -22,6 +22,7 @@
             <label for="role" class="block text-sm font-medium text-gray-700">Role:</label>
             <select name="role" id="role" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
                 <option value="admin" <?php echo set_select('role', 'admin', $user->role == 'admin'); ?>>Admin</option>
+                <option value="moderator" <?php echo set_select('role', 'moderator', $user->role == 'moderator'); ?>>Moderator</option>
                 <option value="customer" <?php echo set_select('role', 'customer', $user->role == 'customer'); ?>>Customer</option>
             </select>
         </div>

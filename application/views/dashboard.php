@@ -120,29 +120,42 @@
 <div class="container mt-10">
     <div class="max-w-md mx-auto bg-white p-8 border border-gray-300 rounded-lg shadow-lg text-center">
         <h2>Welcome, <?php echo $user->username; ?></h2>
-        <p class="mb-4">Points: <?php echo $user->points; ?></p>
+        <?php if($user->role == 'customer'): ?>
+            <p class="mb-4">Points: <?php echo $user->points; ?></p>
+        <?php endif; ?>
 
         <h3 class="mb-6">Actions</h3>
 
-        <div class="action-box">
-            <i class="fas fa-video"></i>
-            <a href="<?php echo site_url('auth/watch_video'); ?>">Watch Video and Earn Points</a>
-        </div>
+        <?php if($user->role == 'customer'): ?>
+            <div class="action-box">
+                <i class="fas fa-video"></i>
+                <a href="<?php echo site_url('auth/watch_video'); ?>">Watch Video and Earn Points</a>
+            </div>
 
-        <div class="action-box">
-            <i class="fas fa-dollar-sign"></i>
-            <a href="<?php echo site_url('auth/convert_points_to_cash'); ?>">Convert Points to Cash</a>
-        </div>
+            <div class="action-box">
+                <i class="fas fa-dollar-sign"></i>
+                <a href="<?php echo site_url('auth/convert_points_to_cash'); ?>">Convert Points to Cash</a>
+            </div>
+        <?php endif; ?>
 
-        <div class="action-box">
-            <i class="fas fa-plus-circle"></i>
-            <a href="<?php echo site_url('auth/list_videos'); ?>">Manage Videos</a>
-        </div>
+        <?php if($user->role == 'admin'): ?>
+            <div class="action-box">
+                <i class="fas fa-plus-circle"></i>
+                <a href="<?php echo site_url('auth/list_videos'); ?>">Manage Videos</a>
+            </div>
 
-        <div class="action-box">
-            <i class="fas fa-plus-circle"></i>
-            <a href="<?php echo site_url('auth/list_users'); ?>">Manage Users</a>
-        </div>
+            <div class="action-box">
+                <i class="fas fa-users"></i>
+                <a href="<?php echo site_url('auth/list_users'); ?>">Manage Users</a>
+            </div>
+        <?php endif; ?>
+
+        <?php if($user->role == 'moderator'): ?>
+            <div class="action-box">
+                <i class="fas fa-plus-circle"></i>
+                <a href="<?php echo site_url('auth/list_videos'); ?>">Manage Videos</a>
+            </div>
+        <?php endif; ?>
 
         <div class="action-box">
             <i class="fas fa-sign-out-alt"></i>
