@@ -3,6 +3,11 @@
 <head>
     <title>Register</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .toggle-password {
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body class="bg-gray-100 text-gray-900">
 
@@ -25,9 +30,12 @@
                     <label for="username" class="block text-gray-700">Username:</label>
                     <input type="text" name="username" class="mt-1 p-2 w-full border border-gray-300 rounded" value="<?php echo set_value('username'); ?>">
                 </div>
-                <div class="mb-4">
+                <div class="mb-4 relative">
                     <label for="password" class="block text-gray-700">Password:</label>
-                    <input type="password" name="password" class="mt-1 p-2 w-full border border-gray-300 rounded">
+                    <div class="flex items-center">
+                        <input type="password" id="password" name="password" class="mt-1 p-2 w-full border border-gray-300 rounded">
+                        <span class="toggle-password ml-2 text-gray-700" onclick="togglePasswordVisibility()">👁️</span>
+                    </div>
                 </div>
                 <button type="submit" class="w-full bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Register</button>
             <?php echo form_close(); ?>
@@ -46,5 +54,15 @@
         <p>&copy; 2024 WatchAndEarn All Rights Reserved</p>
     </footer>
 
+    <script>
+        function togglePasswordVisibility() {
+            var passwordField = document.getElementById("password");
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+            } else {
+                passwordField.type = "password";
+            }
+        }
+    </script>
 </body>
 </html>
