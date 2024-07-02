@@ -26,6 +26,19 @@ class Auth extends CI_Controller
         $this->load->view('login');
     }
 
+    public function view_transactions()
+    {
+        // Ensure the user is logged in
+        if (!$this->session->userdata('user_id')) {
+            redirect('auth/login');
+        }
+
+        $user_id = $this->session->userdata('user_id');
+        $data['transactions'] = $this->user_model->get_transactions_by_user_id($user_id);
+
+        $this->load->view('view_transactions', $data);
+    }
+
     public function login()
     {
         $this->form_validation->set_rules('username', 'Username', 'required');

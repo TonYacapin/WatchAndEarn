@@ -50,6 +50,14 @@ class User_model extends CI_Model
         return $this->db->insert('transactions', $data);
     }
 
+
+    public function get_transactions_by_user_id($user_id)
+    {
+        $this->db->where('user_id', $user_id);
+        $query = $this->db->get('transactions');
+        return $query->result();
+    }
+
     public function get_all_users()
 {
     return $this->db->get('users')->result();
