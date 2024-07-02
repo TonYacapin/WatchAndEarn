@@ -4,39 +4,104 @@
     <meta charset="UTF-8">
     <title>Add User</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #2c3e50;
+            color: #ecf0f1;
+        }
+        header, footer {
+            background-color: #34495e;
+            color: #ecf0f1;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 32px;
+            font-weight: bold;
+        }
+        label {
+            font-size: 16px;
+            font-weight: bold;
+            color: #ecf0f1;
+        }
+        input[type="text"], input[type="password"], select {
+            background-color: #34495e;
+            border: 1px solid #7f8c8d;
+            padding: 10px;
+            border-radius: 3px;
+            width: 100%;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            font-size: 16px;
+            color: #ecf0f1;
+        }
+        input[type="submit"] {
+            background-color: #1abc9c;
+            color: #ecf0f1;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        input[type="submit"]:hover {
+            background-color: #16a085;
+        }
+        .form-container {
+            background-color: #34495e;
+            padding: 20px;
+            border: 1px solid #7f8c8d;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .alert-error {
+            background-color: #c0392b;
+            color: #ecf0f1;
+            padding: 10px;
+            border-radius: 3px;
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
-<body class="bg-gray-200 text-gray-800 font-sans">
-    <header class="bg-blue-600 text-white text-center py-5">
-        <h1 class="text-4xl font-bold">Add User</h1>
-    </header>
-    <div class="container mx-auto px-4 py-5">
-        <?php echo validation_errors('<div class="bg-red-500 text-white p-3 rounded mb-4">', '</div>'); ?>
-        <?php echo form_open('auth/add_user', ['class' => 'bg-white p-6 rounded shadow-md']); ?>
+<body>
+
+<header class="text-center py-4">
+    <h1>Add User</h1>
+</header>
+
+<div class="container mt-10">
+    <?php echo validation_errors('<div class="alert-error">', '</div>'); ?>
+    <?php echo form_open('auth/add_user', ['class' => 'form-container']); ?>
         
         <div class="mb-4">
-            <label for="username" class="block text-sm font-medium text-gray-700">Username:</label>
-            <input type="text" name="username" id="username" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm" value="<?php echo set_value('username'); ?>">
+            <label for="username">Username:</label>
+            <input type="text" name="username" id="username" value="<?php echo set_value('username'); ?>">
         </div>
 
         <div class="mb-4">
-            <label for="password" class="block text-sm font-medium text-gray-700">Password:</label>
-            <input type="password" name="password" id="password" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password">
         </div>
 
         <div class="mb-4">
-            <label for="role" class="block text-sm font-medium text-gray-700">Role:</label>
-            <select name="role" id="role" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
+            <label for="role">Role:</label>
+            <select name="role" id="role">
                 <option value="admin">Admin</option>
+                <option value="moderator">Moderator</option>
                 <option value="customer">Customer</option>
             </select>
         </div>
 
-        <input type="submit" value="Add User" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">
+        <input type="submit" value="Add User">
         
-        <?php echo form_close(); ?>
-    </div>
-    <footer class="bg-gray-400 text-gray-600 text-center py-3">
-        &copy; 2024 Your Website
-    </footer>
+    <?php echo form_close(); ?>
+</div>
+  
 </body>
 </html>

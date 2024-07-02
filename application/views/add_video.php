@@ -1,17 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>Add Video</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
         body {
             font-family: 'Open Sans', sans-serif;
-            background-color: #ecf0f1;
-            color: #2c3e50;
+            background-color: #2c3e50;
+            color: #ecf0f1;
         }
         header, footer {
-            background-color: #3498db;
-            color: #ffffff;
+            background-color: #34495e;
+            color: #ecf0f1;
         }
         .container {
             max-width: 800px;
@@ -19,28 +21,28 @@
             padding: 20px;
         }
         h1 {
-            font-size: 36px;
+            font-size: 32px;
             font-weight: bold;
-            color: #ffffff;
         }
         label {
             font-size: 16px;
             font-weight: bold;
-            color: #2c3e50;
+            color: #ecf0f1;
         }
         input[type="text"], input[type="number"] {
-            border: 1px solid #bdc3c7;
+            background-color: #34495e;
+            border: 1px solid #7f8c8d;
             padding: 10px;
             border-radius: 3px;
             width: 100%;
             margin-top: 5px;
             margin-bottom: 15px;
             font-size: 16px;
-            color: #2c3e50;
+            color: #ecf0f1;
         }
         button[type="submit"] {
-            background-color: #2ecc71;
-            color: #ffffff;
+            background-color: #1abc9c;
+            color: #ecf0f1;
             padding: 10px 20px;
             border: none;
             border-radius: 5px;
@@ -50,39 +52,42 @@
             transition: background-color 0.3s;
         }
         button[type="submit"]:hover {
-            background-color: #27ae60;
+            background-color: #16a085;
+        }
+        .form-container {
+            background-color: #34495e;
+            padding: 20px;
+            border: 1px solid #7f8c8d;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>
 <body>
 
 <header class="text-center py-4">
-    <h1 class="text-3xl font-bold">Add Video</h1>
+    <h1>Add Video</h1>
 </header>
 
-<div class="container mx-auto mt-10">
-    <div class="max-w-md mx-auto bg-white p-8 border border-gray-300 rounded-lg shadow-lg">
+<div class="container mt-10">
+    <div class="max-w-md mx-auto form-container">
         <?php echo form_open('auth/add_video'); ?>
             <div class="mb-4">
                 <label for="title">Title:</label>
-                <input type="text" id="title" name="title" class="block">
+                <input type="text" id="title" name="title" required>
             </div>
             <div class="mb-4">
-                <label for="url">Video URL:</label>
-                <input type="text" id="url" name="url" class="block">
+                <label for="url">YouTube Video URL:</label>
+                <input type="text" id="url" name="url" required>
             </div>
             <div class="mb-4">
                 <label for="points_reward">Points Reward:</label>
-                <input type="number" id="points_reward" name="points_reward" class="block">
+                <input type="number" id="points_reward" name="points_reward" required>
             </div>
             <button type="submit">Add Video</button>
         <?php echo form_close(); ?>
     </div>
 </div>
-
-<footer class="text-center py-4 mt-10 bg-gray-300 text-gray-700">
-    <p>&copy; 2024 WatchAndEarn All Rights Reserved</p>
-</footer>
 
 </body>
 </html>

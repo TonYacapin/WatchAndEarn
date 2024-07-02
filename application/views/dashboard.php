@@ -7,89 +7,88 @@
     <style>
         body {
             font-family: 'Open Sans', sans-serif;
-            background-color: #ecf0f1;
-            color: #2c3e50;
+            background-color: #2c3e50;
+            color: #ecf0f1;
         }
         header, footer {
-            background-color: #3498db;
-            color: #ffffff;
+            background-color: #34495e;
+            color: #ecf0f1;
         }
         .container {
-            max-width: 1200px;
+            max-width: 800px;
             margin: 0 auto;
             padding: 20px;
         }
         h1 {
-            font-size: 36px;
+            font-size: 32px;
             font-weight: bold;
-            color: #ffffff;
         }
         h2 {
-            font-size: 30px;
+            font-size: 24px;
             font-weight: 600;
-            color: #3498db;
         }
         h3 {
-            font-size: 24px;
+            font-size: 20px;
             font-weight: 500;
-            color: #2ecc71;
         }
         p, li, a {
             font-size: 16px;
-            color: #2c3e50;
+            color: #bdc3c7;
         }
         a {
-            color: #3498db;
+            color: #1abc9c;
         }
         a:hover {
             text-decoration: underline;
         }
         .primary-btn {
-            background-color: #3498db;
-            color: #ffffff;
+            background-color: #1abc9c;
+            color: #ecf0f1;
             padding: 10px 20px;
             border: none;
             border-radius: 5px;
         }
         .primary-btn:hover {
-            background-color: #2980b9;
+            background-color: #16a085;
         }
         .secondary-btn {
-            background-color: #2ecc71;
-            color: #ffffff;
+            background-color: #e74c3c;
+            color: #ecf0f1;
             padding: 10px 20px;
             border: none;
             border-radius: 5px;
         }
         .secondary-btn:hover {
-            background-color: #27ae60;
+            background-color: #c0392b;
         }
         .form-input {
-            border: 1px solid #bdc3c7;
+            background-color: #34495e;
+            border: 1px solid #7f8c8d;
             padding: 10px;
             border-radius: 3px;
             margin-bottom: 10px;
+            color: #ecf0f1;
         }
         .form-label {
             font-size: 14px;
-            color: #2c3e50;
+            color: #bdc3c7;
         }
         .alert-success {
-            background-color: #2ecc71;
-            color: #ffffff;
+            background-color: #27ae60;
+            color: #ecf0f1;
             padding: 10px;
             border-radius: 3px;
         }
         .alert-error {
-            background-color: #e74c3c;
-            color: #ffffff;
+            background-color: #c0392b;
+            color: #ecf0f1;
             padding: 10px;
             border-radius: 3px;
         }
         .action-box {
-            background-color: #ffffff;
+            background-color: #34495e;
             padding: 20px;
-            border: 1px solid #bdc3c7;
+            border: 1px solid #7f8c8d;
             border-radius: 5px;
             margin-bottom: 20px;
             text-align: center;
@@ -100,14 +99,14 @@
         }
         .action-box i {
             font-size: 24px;
-            color: #3498db;
+            color: #1abc9c;
             margin-bottom: 10px;
         }
         .action-box a {
             display: block;
             margin-top: 10px;
             font-size: 18px;
-            color: #3498db;
+            color: #1abc9c;
         }
     </style>
 </head>
@@ -118,7 +117,7 @@
 </header>
 
 <div class="container mt-10">
-    <div class="max-w-md mx-auto bg-white p-8 border border-gray-300 rounded-lg shadow-lg text-center">
+    <div class="max-w-md mx-auto bg-gray-800 p-8 border border-gray-700 rounded-lg shadow-lg text-center">
         <h2>Welcome, <?php echo $user->username; ?></h2>
         <?php if($user->role == 'customer'): ?>
             <p class="mb-4">Points: <?php echo $user->points; ?></p>
@@ -175,9 +174,6 @@
     </div>
 </div>
 
-<footer class="text-center py-4 mt-10">
-    <p>&copy; 2024 WatchAndEarn All Rights Reserved</p>
-</footer>
 
 </body>
 </html>
