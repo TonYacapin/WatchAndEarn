@@ -163,7 +163,7 @@
 
                 <div class="action-box">
                     <i class="fas fa-receipt"></i>
-                    <a href="<?php echo site_url('transactions'); ?>">Transactions</a>
+                    <a href="<?php echo site_url('user/transactions'); ?>">Transactions</a>
                 </div>
 
 
@@ -178,6 +178,11 @@
                 <div class="action-box">
                     <i class="fas fa-users"></i>
                     <a href="<?php echo site_url('auth/list_users'); ?>">Manage Users</a>
+                </div>
+
+                <div class="action-box">
+                    <i class="fas fa-receipt"></i>
+                    <a href="<?php echo site_url('transactions'); ?>">Users Transactions</a>
                 </div>
             <?php endif; ?>
 

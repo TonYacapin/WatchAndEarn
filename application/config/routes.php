@@ -66,4 +66,7 @@ $route['auth/list_users'] = 'auth/list_users';
 $route['auth/add_user'] = 'auth/add_user';
 $route['auth/edit_user/(:num)'] = 'auth/edit_user/$1';
 $route['auth/delete_user/(:num)'] = 'auth/delete_user/$1';
-$route['transactions'] = 'auth/view_transactions';
+// $route['transactions'] = 'auth/view_transactions';
+
+$route['transactions'] = 'transaction/index';
+$route['user/transactions'] = 'transaction/user_transactions';
