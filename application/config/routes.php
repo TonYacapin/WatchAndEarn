@@ -70,3 +70,9 @@ $route['auth/delete_user/(:num)'] = 'auth/delete_user/$1';
 
 $route['transactions'] = 'transaction/index';
 $route['user/transactions'] = 'transaction/user_transactions';
+
+$route['auth/make_unionbank_transfer'] = 'make_unionbank_transfer';
+
+$route['convert_points_to_cash'] = 'auth/convert_points_to_cash';
+
+$route['process_conversion'] = 'auth/process_conversion';

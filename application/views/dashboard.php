@@ -158,7 +158,7 @@
 
                 <div class="action-box">
                     <i class="fas fa-dollar-sign"></i>
-                    <a href="<?php echo site_url('auth/convert_points_to_cash'); ?>">Convert Points to Cash</a>
+                    <a href="<?php echo site_url('convert_points_to_cash'); ?>">Convert Points to Cash</a>
                 </div>
 
                 <div class="action-box">
