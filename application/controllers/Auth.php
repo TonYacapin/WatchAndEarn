@@ -367,7 +367,33 @@ class Auth extends CI_Controller
             }
         }
     }
-
+    public function ban_user($user_id)
+    {
+        if (!$this->session->userdata('logged_in') || $this->session->userdata('role') !== 'admin') {
+            redirect('auth');
+        }
+    
+        if ($this->user_model->ban_user($user_id)) {
+            $this->session->set_flashdata('success', 'User banned successfully.');
+        } else {
+            $this->session->set_flashdata('error', 'Failed to ban user.');
+        }
+        redirect('auth/list_users');
+    }
+    
+    public function unban_user($user_id)
+    {
+        if (!$this->session->userdata('logged_in') || $this->session->userdata('role') !== 'admin') {
+            redirect('auth');
+        }
+    
+        if ($this->user_model->unban_user($user_id)) {
+            $this->session->set_flashdata('success', 'User unbanned successfully.');
+        } else {
+            $this->session->set_flashdata('error', 'Failed to unban user.');
+        }
+        redirect('auth/list_users');
+    }
     public function edit_user($user_id)
     {
         if (!$this->session->userdata('logged_in')) {

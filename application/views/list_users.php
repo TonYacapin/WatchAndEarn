@@ -74,6 +74,12 @@
         .btn-delete:hover {
             background-color: #c0392b;
         }
+        .btn-unban {
+            background-color: #f39c12;
+        }
+        .btn-unban:hover {
+            background-color: #e67e22;
+        }
         .alert-success {
             background-color: #27ae60;
             color: #ecf0f1;
@@ -106,7 +112,7 @@
 
     <a href="<?php echo site_url('auth/add_user'); ?>" class="btn btn-add">Add New User</a>
     <a href="<?php echo site_url('auth/dashboard'); ?>"
-    class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 inline-block mb-4">Back to Dashboard</a>
+       class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 inline-block mb-4">Back to Dashboard</a>
     <table>
         <thead>
             <tr>
@@ -122,7 +128,11 @@
                     <td><?php echo $user->role; ?></td>
                     <td>
                         <a href="<?php echo site_url('auth/edit_user/' . $user->id); ?>" class="btn btn-edit">Edit</a>
-                        <a href="<?php echo site_url('auth/delete_user/' . $user->id); ?>" onclick="return confirm('Are you sure you want to ban this user?');" class="btn btn-delete ml-2">Ban</a>
+                        <?php if ($user->role === 'Banned'): ?>
+                            <a href="<?php echo site_url('auth/unban_user/' . $user->id); ?>" onclick="return confirm('Are you sure you want to unban this user?');" class="btn btn-unban ml-2">Unban</a>
+                        <?php else: ?>
+                            <a href="<?php echo site_url('auth/ban_user/' . $user->id); ?>" onclick="return confirm('Are you sure you want to ban this user?');" class="btn btn-delete ml-2">Ban</a>
+                        <?php endif; ?>
                     </td>
                 </tr>
             <?php endforeach; ?>

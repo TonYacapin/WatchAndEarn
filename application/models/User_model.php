@@ -29,6 +29,15 @@ class User_model extends CI_Model
     return $this->db->update('users', $data);
 }
 
+public function unban_user($user_id, $new_role = 'customer')
+{
+    $data = array('role' => $new_role);
+
+    $this->db->where('id', $user_id);
+    return $this->db->update('users', $data);
+}
+
+
     public function register($username, $password, $role = 'customer')
     {
         $data = array(

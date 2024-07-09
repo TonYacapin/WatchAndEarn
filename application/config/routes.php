@@ -76,3 +76,7 @@ $route['auth/make_unionbank_transfer'] = 'make_unionbank_transfer';
 $route['convert_points_to_cash'] = 'auth/convert_points_to_cash';
 
 $route['process_conversion'] = 'auth/process_conversion';
+
+$route['auth/ban_user/(:num)'] = 'auth/ban_user/$1';
+$route['auth/unban_user/(:num)'] = 'auth/unban_user/$1';
+
