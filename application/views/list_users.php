@@ -122,7 +122,7 @@
                     <td><?php echo $user->role; ?></td>
                     <td>
                         <a href="<?php echo site_url('auth/edit_user/' . $user->id); ?>" class="btn btn-edit">Edit</a>
-                        <a href="<?php echo site_url('auth/delete_user/' . $user->id); ?>" onclick="return confirm('Are you sure you want to delete this user?');" class="btn btn-delete ml-2">Delete</a>
+                        <a href="<?php echo site_url('auth/delete_user/' . $user->id); ?>" onclick="return confirm('Are you sure you want to ban this user?');" class="btn btn-delete ml-2">Ban</a>
                     </td>
                 </tr>
             <?php endforeach; ?>

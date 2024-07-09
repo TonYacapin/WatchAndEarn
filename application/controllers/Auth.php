@@ -43,28 +43,34 @@ class Auth extends CI_Controller
     {
         $this->form_validation->set_rules('username', 'Username', 'required');
         $this->form_validation->set_rules('password', 'Password', 'required');
-
+    
         if ($this->form_validation->run() === FALSE) {
             $this->load->view('login');
         } else {
             $username = $this->input->post('username');
             $password = $this->input->post('password');
             $user = $this->user_model->login($username, $password);
-
+    
             if ($user) {
-                $this->session->set_userdata(array(
-                    'user_id' => $user->id,
-                    'username' => $user->username,
-                    'role' => $user->role,
-                    'logged_in' => TRUE
-                ));
-                redirect('auth/dashboard');
+                if ($user->role == 'Banned') {
+                    $this->session->set_flashdata('error', 'Your account has been banned.');
+                    redirect('auth');
+                } else {
+                    $this->session->set_userdata(array(
+                        'user_id' => $user->id,
+                        'username' => $user->username,
+                        'role' => $user->role,
+                        'logged_in' => TRUE
+                    ));
+                    redirect('auth/dashboard');
+                }
             } else {
                 $this->session->set_flashdata('error', 'Invalid login credentials');
                 redirect('auth');
             }
         }
     }
+    
 
     public function logout()
     {
@@ -393,12 +399,13 @@ class Auth extends CI_Controller
         if (!$this->session->userdata('logged_in')) {
             redirect('auth');
         }
-
-        if ($this->user_model->delete_user($user_id)) {
-            $this->session->set_flashdata('success', 'User deleted successfully.');
+    
+        if ($this->user_model->ban_user($user_id)) {
+            $this->session->set_flashdata('success', 'User has been banned successfully.');
         } else {
-            $this->session->set_flashdata('error', 'Failed to delete user.');
+            $this->session->set_flashdata('error', 'Failed to ban user.');
         }
         redirect('auth/list_users');
     }
+    
 }
