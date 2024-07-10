@@ -69,6 +69,14 @@ public function unban_user($user_id, $new_role = 'customer')
         return $this->db->insert('transactions', $data);
     }
 
+    public function get_all_users_sorted($sort_by)
+{
+    $this->db->order_by($sort_by, 'ASC');
+    $query = $this->db->get('users');
+    return $query->result();
+}
+
+
 
     public function get_transactions_by_user_id($user_id)
     {

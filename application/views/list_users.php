@@ -128,10 +128,12 @@
                     <td><?php echo $user->role; ?></td>
                     <td>
                         <a href="<?php echo site_url('auth/edit_user/' . $user->id); ?>" class="btn btn-edit">Edit</a>
-                        <?php if ($user->role === 'Banned'): ?>
-                            <a href="<?php echo site_url('auth/unban_user/' . $user->id); ?>" onclick="return confirm('Are you sure you want to unban this user?');" class="btn btn-unban ml-2">Unban</a>
-                        <?php else: ?>
-                            <a href="<?php echo site_url('auth/ban_user/' . $user->id); ?>" onclick="return confirm('Are you sure you want to ban this user?');" class="btn btn-delete ml-2">Ban</a>
+                        <?php if ($user->role === 'customer' || $user->role === 'Banned'): ?>
+                            <?php if ($user->role === 'Banned'): ?>
+                                <a href="<?php echo site_url('auth/unban_user/' . $user->id); ?>" onclick="return confirm('Are you sure you want to unban this user?');" class="btn btn-unban ml-2">Unban</a>
+                            <?php else: ?>
+                                <a href="<?php echo site_url('auth/ban_user/' . $user->id); ?>" onclick="return confirm('Are you sure you want to ban this user?');" class="btn btn-delete ml-2">Ban</a>
+                            <?php endif; ?>
                         <?php endif; ?>
                     </td>
                 </tr>
