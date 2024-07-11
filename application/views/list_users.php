@@ -1,146 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>List of Users</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Open Sans', sans-serif;
-            background-color: #2c3e50;
-            color: #ecf0f1;
-        }
-        header, footer {
-            background-color: #34495e;
-            color: #ecf0f1;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        h1 {
-            font-size: 32px;
-            font-weight: bold;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-        thead {
-            background-color: #34495e;
-        }
-        th, td {
-            padding: 10px;
-            border: 1px solid #7f8c8d;
-        }
-        th {
-            background-color: #34495e;
-            color: #ecf0f1;
-        }
-        tbody tr {
-            background-color: #3c4e60;
-        }
-        tbody tr:nth-child(even) {
-            background-color: #2c3e50;
-        }
-        tbody tr:hover {
-            background-color: #1abc9c;
-            color: #ecf0f1;
-        }
-        .btn {
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            color: #ecf0f1;
-        }
-        .btn-add {
-            background-color: #1abc9c;
-            margin-bottom: 10px;
-        }
-        .btn-add:hover {
-            background-color: #16a085;
-        }
-        .btn-edit {
-            background-color: #3498db;
-        }
-        .btn-edit:hover {
-            background-color: #2980b9;
-        }
-        .btn-delete {
-            background-color: #e74c3c;
-        }
-        .btn-delete:hover {
-            background-color: #c0392b;
-        }
-        .btn-unban {
-            background-color: #f39c12;
-        }
-        .btn-unban:hover {
-            background-color: #e67e22;
-        }
-        .alert-success {
-            background-color: #27ae60;
-            color: #ecf0f1;
-            padding: 10px;
-            border-radius: 3px;
-            margin-bottom: 10px;
-        }
-        .alert-error {
-            background-color: #c0392b;
-            color: #ecf0f1;
-            padding: 10px;
-            border-radius: 3px;
-            margin-bottom: 10px;
-        }
-    </style>
 </head>
-<body>
 
-<header class="text-center py-4">
-    <h1>List of Users</h1>
-</header>
+<body class="bg-gray-900 text-gray-100 font-sans">
+    <header class="bg-gray-800 text-white text-center py-6 shadow-lg">
+        <h1 class="text-4xl font-bold">List of Users</h1>
+    </header>
 
-<div class="container mt-10">
-    <?php if ($this->session->flashdata('success')): ?>
-        <p class="alert-success"><?php echo $this->session->flashdata('success'); ?></p>
-    <?php endif; ?>
-    <?php if ($this->session->flashdata('error')): ?>
-        <p class="alert-error"><?php echo $this->session->flashdata('error'); ?></p>
-    <?php endif; ?>
+    <div class="container mx-auto px-4 py-8">
+        <?php if ($this->session->flashdata('success')): ?>
+            <p class="bg-green-600 text-white p-4 rounded mb-6"><?php echo $this->session->flashdata('success'); ?></p>
+        <?php endif; ?>
+        <?php if ($this->session->flashdata('error')): ?>
+            <p class="bg-red-600 text-white p-4 rounded mb-6"><?php echo $this->session->flashdata('error'); ?></p>
+        <?php endif; ?>
 
-    <a href="<?php echo site_url('auth/add_user'); ?>" class="btn btn-add">Add New User</a>
-    <a href="<?php echo site_url('auth/dashboard'); ?>"
-       class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 inline-block mb-4">Back to Dashboard</a>
-    <table>
-        <thead>
-            <tr>
-                <th>Username</th>
-                <th>Role</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($users as $user): ?>
+        <div class="flex justify-between mb-6">
+            <a href="<?php echo site_url('auth/add_user'); ?>" class="bg-green-600 text-white px-5 py-3 rounded hover:bg-green-700">Add New User</a>
+            <a href="<?php echo site_url('auth/dashboard'); ?>" class="bg-blue-600 text-white px-5 py-3 rounded hover:bg-blue-700">Back to Dashboard</a>
+        </div>
+
+        <table class="w-full bg-gray-800 shadow-lg rounded-lg">
+            <thead class="bg-gray-700">
                 <tr>
-                    <td><?php echo $user->username; ?></td>
-                    <td><?php echo $user->role; ?></td>
-                    <td>
-                        <a href="<?php echo site_url('auth/edit_user/' . $user->id); ?>" class="btn btn-edit">Edit</a>
-                        <?php if ($user->role === 'customer' || $user->role === 'Banned'): ?>
-                            <?php if ($user->role === 'Banned'): ?>
-                                <a href="<?php echo site_url('auth/unban_user/' . $user->id); ?>" onclick="return confirm('Are you sure you want to unban this user?');" class="btn btn-unban ml-2">Unban</a>
-                            <?php else: ?>
-                                <a href="<?php echo site_url('auth/ban_user/' . $user->id); ?>" onclick="return confirm('Are you sure you want to ban this user?');" class="btn btn-delete ml-2">Ban</a>
-                            <?php endif; ?>
-                        <?php endif; ?>
-                    </td>
+                    <th class="text-left p-4 text-gray-100">Username</th>
+                    <th class="text-left p-4 text-gray-100">Role</th>
+                    <th class="text-left p-4 text-gray-100">Actions</th>
                 </tr>
-            <?php endforeach; ?>
-        </tbody>
-    </table>
-</div>
-
+            </thead>
+            <tbody>
+                <?php foreach ($users as $user): ?>
+                    <tr class="border-b border-gray-600 hover:bg-gray-700">
+                        <td class="p-4 text-gray-100"><?php echo $user->username; ?></td>
+                        <td class="p-4 text-gray-100"><?php echo $user->role; ?></td>
+                        <td class="p-4 text-gray-100">
+                            <a href="<?php echo site_url('auth/edit_user/' . $user->id); ?>" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Edit</a>
+                            <?php if ($user->role === 'customer' || $user->role === 'Banned'): ?>
+                                <?php if ($user->role === 'Banned'): ?>
+                                    <a href="<?php echo site_url('auth/unban_user/' . $user->id); ?>" onclick="return confirm('Are you sure you want to unban this user?');" class="bg-yellow-600 text-white px-4 py-2 rounded hover:bg-yellow-700 ml-2">Unban</a>
+                                <?php else: ?>
+                                    <a href="<?php echo site_url('auth/ban_user/' . $user->id); ?>" onclick="return confirm('Are you sure you want to ban this user?');" class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 ml-2">Ban</a>
+                                <?php endif; ?>
+                            <?php endif; ?>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
 </body>
+
 </html>
