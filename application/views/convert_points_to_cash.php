@@ -1,4 +1,3 @@
-<!-- application/views/auth/convert_points_to_cash.php -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -43,8 +42,19 @@
         .primary-btn:hover {
             background-color: #16a085;
         }
+        .primary-btn:disabled {
+            background-color: #7f8c8d;
+            cursor: not-allowed;
+        }
         .info-box {
             background-color: #2980b9;
+            color: #ecf0f1;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        .error-box {
+            background-color: #e74c3c;
             color: #ecf0f1;
             padding: 10px;
             border-radius: 5px;
@@ -69,12 +79,18 @@
             <p>Possible Cash: <?php echo $cash_amount; ?></p>
         </div>
 
+        <?php if ($points < 3000): ?>
+            <div class="error-box">
+                <p>You need at least 3000 points to convert to cash.</p>
+            </div>
+        <?php endif; ?>
+
         <form action="<?php echo site_url('auth/process_conversion'); ?>" method="post">
             <input type="hidden" id="points" name="points" value="<?php echo $points; ?>">
             <label for="account_number">UnionBank Account Number:</label>
             <input type="text" id="account_number" name="account_number" class="form-input" required>
 
-            <button type="submit" class="primary-btn">Convert</button>
+            <button type="submit" class="primary-btn" <?php echo $points < 3000 ? 'disabled' : ''; ?>>Convert</button>
         </form>
     </div>
 </body>

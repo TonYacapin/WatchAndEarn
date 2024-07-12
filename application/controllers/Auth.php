@@ -178,7 +178,7 @@ class Auth extends CI_Controller
         $cash_amount = $points * 0.1;
     
         // Make UnionBank transfer
-        $debit_account = '000000003'; // Replace with your debit account number
+        $debit_account = '000000004'; // Replace with your debit account number
         $credit_account = $account_number;
         $transfer_response = $this->make_unionbank_transfer($debit_account, $credit_account, $cash_amount);
     
@@ -212,7 +212,7 @@ class Auth extends CI_Controller
  private function make_unionbank_transfer($debit, $credit, $amount)
 {
     $url = 'http://192.168.10.14:3001/api/unionbank/transfertransaction'; // Replace with your UnionBank API endpoint URL
-    $api_key = '$2b$10$kfnnU/7/o7dATTO9PNpCduWZVyqpf9LfwBWdYVvCHL805u/2Me2ey'; // Replace with your UnionBank API key
+    $api_key = '$2b$10$mjyKI2Um/mnwAlIv35YnPeQdpjx.YwXl2ef2/Bp4h3CJZITkh11YK'; // Replace with your UnionBank API key
 
     $data = array(
         'debitAccount' => $debit,
