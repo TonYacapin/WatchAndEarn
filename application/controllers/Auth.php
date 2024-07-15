@@ -110,24 +110,36 @@ class Auth extends CI_Controller
         }
     }
 
-    public function watch_video()
-    {
-        if (!$this->session->userdata('logged_in')) {
-            redirect('auth');
-        }
-
-        // Get a random video from your database
-        $video = $this->video_model->get_random_video();
-
-        if ($video) {
-            $data['video'] = $video;
-            $this->load->view('watch_video', $data);
-        } else {
-            // Handle error if no video is found
-            $this->session->set_flashdata('error', 'No video available.');
-            redirect('auth/dashboard');
-        }
+    public function select_video() {
+        $data['videos'] = $this->video_model->get_all_videos();
+        $this->load->view('select_video', $data);
     }
+    
+
+    // public function watch_video()
+    // {
+    //     if (!$this->session->userdata('logged_in')) {
+    //         redirect('auth');
+    //     }
+
+    //     // Get a random video from your database
+    //     $video = $this->video_model->get_random_video();
+
+    //     if ($video) {
+    //         $data['video'] = $video;
+    //         $this->load->view('watch_video', $data);
+    //     } else {
+    //         // Handle error if no video is found
+    //         $this->session->set_flashdata('error', 'No video available.');
+    //         redirect('auth/dashboard');
+    //     }
+    // }
+
+    public function watch_video($video_id) {
+        $data['video'] = $this->video_model->get_video($video_id);
+        $this->load->view('watch_video', $data);
+    }
+    
 
     public function earn_points($video_id)
     {

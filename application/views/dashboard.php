@@ -61,8 +61,9 @@
                 <?php if ($user->role == 'customer') : ?>
                     <div class="action-box bg-gray-800 p-6 rounded-lg text-center shadow-md">
                         <i class="fas fa-video"></i>
-                        <a href="<?php echo site_url('auth/watch_video'); ?>">Watch Video and Earn Points</a>
+                        <a href="<?php echo site_url('auth/select_video'); ?>">Watch Video and Earn Points</a>
                     </div>
+
 
                     <div class="action-box bg-gray-800 p-6 rounded-lg text-center shadow-md">
                         <i class="fas fa-dollar-sign"></i>
