@@ -33,9 +33,7 @@ $videoId = extractYoutubeId($video->url);
     </div>
 </div>
 
-<footer class="bg-gray-300 text-center text-gray-700 py-4 mt-10">
-    <p>&copy; 2024 WatchAndEarn All Rights Reserved</p>
-</footer>
+
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
