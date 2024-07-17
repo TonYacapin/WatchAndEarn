@@ -64,7 +64,6 @@
                         <a href="<?php echo site_url('auth/select_video'); ?>">Watch Video and Earn Points</a>
                     </div>
 
-
                     <div class="action-box bg-gray-800 p-6 rounded-lg text-center shadow-md">
                         <i class="fas fa-dollar-sign"></i>
                         <a href="<?php echo site_url('convert_points_to_cash'); ?>">Convert Points to Cash</a>
@@ -73,6 +72,11 @@
                     <div class="action-box bg-gray-800 p-6 rounded-lg text-center shadow-md">
                         <i class="fas fa-receipt"></i>
                         <a href="<?php echo site_url('user/transactions'); ?>">Transactions</a>
+                    </div>
+
+                    <div class="action-box bg-gray-800 p-6 rounded-lg text-center shadow-md">
+                        <i class="fas fa-handshake"></i>
+                        <a href="<?php echo site_url('partners'); ?>">Our Partners</a>
                     </div>
                 <?php endif; ?>
 
@@ -91,12 +95,22 @@
                         <i class="fas fa-receipt"></i>
                         <a href="<?php echo site_url('transactions'); ?>">Users Transactions</a>
                     </div>
+
+                    <div class="action-box bg-gray-800 p-6 rounded-lg text-center shadow-md">
+                        <i class="fas fa-handshake"></i>
+                        <a href="<?php echo site_url('partners'); ?>">Our Partners</a>
+                    </div>
                 <?php endif; ?>
 
                 <?php if ($user->role == 'moderator') : ?>
                     <div class="action-box bg-gray-800 p-6 rounded-lg text-center shadow-md">
                         <i class="fas fa-plus-circle"></i>
                         <a href="<?php echo site_url('auth/list_videos'); ?>">Manage Videos</a>
+                    </div>
+
+                    <div class="action-box bg-gray-800 p-6 rounded-lg text-center shadow-md">
+                        <i class="fas fa-handshake"></i>
+                        <a href="<?php echo site_url('partners'); ?>">Our Partners</a>
                     </div>
                 <?php endif; ?>
 

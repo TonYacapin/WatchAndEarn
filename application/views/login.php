@@ -44,6 +44,8 @@
 
             <p class="mt-4 text-center text-gray-400">Don't have an account? <a href="<?php echo site_url('auth/register'); ?>" class="text-gray-300 hover:text-gray-100">Register here</a></p>
 
+            <button onclick="goBack()" class="w-full bg-blue-500 hover:bg-blue-400 text-gray-100 font-bold py-2 px-4 rounded mt-4">Go Back</button>
+
             <?php if ($this->session->flashdata('error')) : ?>
                 <div class="mt-4 bg-red-600 border border-red-700 text-red-100 px-4 py-3 rounded">
                     <?php echo $this->session->flashdata('error'); ?>
@@ -69,6 +71,10 @@
             } else {
                 passwordField.type = "password";
             }
+        }
+
+        function goBack() {
+            window.history.back();
         }
     </script>
 </body>

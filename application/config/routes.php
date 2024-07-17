@@ -86,3 +86,5 @@ $route['auth/sort_users/(:any)'] = 'auth/sort_users/$1';
 
 $route['watch_video/(:num)'] = 'auth/watch_video/$1';
 $route['auth/select_video'] = 'auth/select_video';
+
+$route['partners'] = 'welcome/ourpartners';

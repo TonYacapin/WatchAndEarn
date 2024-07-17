@@ -23,9 +23,12 @@ class Auth extends CI_Controller
         if ($this->session->userdata('logged_in')) {
             redirect('auth/dashboard');
         }
+        // Capture referrer URL
+        if (isset($_SERVER['HTTP_REFERER'])) {
+            $this->session->set_userdata('referrer_url', $_SERVER['HTTP_REFERER']);
+        }
         $this->load->view('login');
     }
-
     public function view_transactions()
     {
         // Ensure the user is logged in
@@ -38,7 +41,6 @@ class Auth extends CI_Controller
 
         $this->load->view('view_transactions', $data);
     }
-
     public function login()
     {
         $this->form_validation->set_rules('username', 'Username', 'required');
@@ -75,8 +77,16 @@ class Auth extends CI_Controller
     public function logout()
     {
         $this->session->unset_userdata(array('user_id', 'username', 'role', 'logged_in'));
-        $this->session->sess_destroy();
-        redirect('auth');
+
+        // Redirect to referrer URL if available
+        if ($this->session->userdata('referrer_url')) {
+            $referrer_url = $this->session->userdata('referrer_url');
+            $this->session->unset_userdata('referrer_url'); // Clear the stored referrer after use
+            redirect($referrer_url);
+        } else {
+            // Redirect to default page if no referrer URL is stored
+            redirect('auth');
+        }
     }
 
     public function dashboard()
