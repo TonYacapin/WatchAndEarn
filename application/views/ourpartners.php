@@ -62,7 +62,7 @@
                 </a>
             </div>
             <div class="partner-card bg-gray-700 p-6 rounded-lg shadow-md hover:bg-gray-600">
-                <a href="https://www.partner2.com" target="_blank" rel="noopener noreferrer" class="block">
+                <a href="http://192.168.10.14" target="_blank" rel="noopener noreferrer" class="block">
                     <img src="https://via.placeholder.com/150" alt="Partner 2" class="partner-image">
                     <h3 class="text-blue-400 hover:text-blue-300 text-xl font-medium mt-4 mb-2 text-center">
                         UnionBank
