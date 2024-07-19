@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +9,10 @@
     <style>
         body {
             font-family: 'Open Sans', sans-serif;
-            background-color: #1e293b; /* dark background */
-            color: #e2e8f0; /* light text */
+            background-color: #1e293b;
+            /* dark background */
+            color: #e2e8f0;
+            /* light text */
         }
 
         .partner-card {
@@ -28,300 +31,88 @@
         }
 
         .header {
-            background-color: #1e40af; /* dark blue background */
-            color: #e2e8f0; /* light text */
+            background-color: #1e40af;
+            /* dark blue background */
+            color: #e2e8f0;
+            /* light text */
         }
 
         .header h1 {
-            color: #60a5fa; /* lighter accent color */
+            color: #60a5fa;
+            /* lighter accent color */
         }
 
         .footer {
-            background-color: #374151; /* darker footer */
-            color: #e2e8f0; /* light text */
+            background-color: #374151;
+            /* darker footer */
+            color: #e2e8f0;
+            /* light text */
         }
     </style>
 </head>
+
 <body>
 
-<header class="header text-center py-4">
-    <h1 class="text-3xl font-bold">Our Partners</h1>
-</header>
+    <header class="header text-center py-4">
+        <h1 class="text-3xl font-bold">Our Partners</h1>
+    </header>
 
-<div class="container mx-auto mt-10">
-    <div class="max-w-6xl mx-auto bg-gray-800 p-8 border border-gray-700 rounded-lg shadow-lg">
-        <h2 class="text-2xl font-semibold text-blue-400 mb-6">Meet Our Partners</h2>
+    <div class="container mx-auto mt-10">
+        <div class="max-w-6xl mx-auto bg-gray-800 p-8 border border-gray-700 rounded-lg shadow-lg">
+            <h2 class="text-2xl font-semibold text-blue-400 mb-6">Meet Our Partners</h2>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            <div class="partner-card bg-gray-700 p-6 rounded-lg shadow-md hover:bg-gray-600">
-                <a href="http://192.168.10.13" target="_blank" rel="noopener noreferrer" class="block">
-                    <img src="https://via.placeholder.com/150" alt="Partner 1" class="partner-image">
-                    <h3 class="text-blue-400 hover:text-blue-300 text-xl font-medium mt-4 mb-2 text-center">
-                        Tiago Shop
-                    </h3>
-                </a>
-            </div>
-            <div class="partner-card bg-gray-700 p-6 rounded-lg shadow-md hover:bg-gray-600">
-                <a href="http://192.168.10.14" target="_blank" rel="noopener noreferrer" class="block">
-                    <img src="https://via.placeholder.com/150" alt="Partner 2" class="partner-image">
-                    <h3 class="text-blue-400 hover:text-blue-300 text-xl font-medium mt-4 mb-2 text-center">
-                        UnionBank
-                    </h3>
-                </a>
-            </div>
-            <div class="partner-card bg-gray-700 p-6 rounded-lg shadow-md hover:bg-gray-600">
-                <a href="https://www.partner3.com" target="_blank" rel="noopener noreferrer" class="block">
-                    <img src="https://via.placeholder.com/150" alt="Partner 3" class="partner-image">
-                    <h3 class="text-blue-400 hover:text-blue-300 text-xl font-medium mt-4 mb-2 text-center">
-                        MetroBank
-                    </h3>
-                </a>
-            </div>
-            <div class="partner-card bg-gray-700 p-6 rounded-lg shadow-md hover:bg-gray-600">
-                <a href="https://www.partner4.com" target="_blank" rel="noopener noreferrer" class="block">
-                    <img src="https://via.placeholder.com/150" alt="Partner 4" class="partner-image">
-                    <h3 class="text-blue-400 hover:text-blue-300 text-xl font-medium mt-4 mb-2 text-center">
-                        Partner 4
-                    </h3>
-                </a>
-            </div>
-            <div class="partner-card bg-gray-700 p-6 rounded-lg shadow-md hover:bg-gray-600">
-                <a href="https://www.partner4.com" target="_blank" rel="noopener noreferrer" class="block">
-                    <img src="https://via.placeholder.com/150" alt="Partner 4" class="partner-image">
-                    <h3 class="text-blue-400 hover:text-blue-300 text-xl font-medium mt-4 mb-2 text-center">
-                        Partner 4
-                    </h3>
-                </a>
-            </div>
-            <div class="partner-card bg-gray-700 p-6 rounded-lg shadow-md hover:bg-gray-600">
-                <a href="https://www.partner4.com" target="_blank" rel="noopener noreferrer" class="block">
-                    <img src="https://via.placeholder.com/150" alt="Partner 4" class="partner-image">
-                    <h3 class="text-blue-400 hover:text-blue-300 text-xl font-medium mt-4 mb-2 text-center">
-                        Partner 4
-                    </h3>
-                </a>
-            </div>
-            <div class="partner-card bg-gray-700 p-6 rounded-lg shadow-md hover:bg-gray-600">
-                <a href="https://www.partner4.com" target="_blank" rel="noopener noreferrer" class="block">
-                    <img src="https://via.placeholder.com/150" alt="Partner 4" class="partner-image">
-                    <h3 class="text-blue-400 hover:text-blue-300 text-xl font-medium mt-4 mb-2 text-center">
-                        Partner 4
-                    </h3>
-                </a>
-            </div>
-            <div class="partner-card bg-gray-700 p-6 rounded-lg shadow-md hover:bg-gray-600">
-                <a href="https://www.partner4.com" target="_blank" rel="noopener noreferrer" class="block">
-                    <img src="https://via.placeholder.com/150" alt="Partner 4" class="partner-image">
-                    <h3 class="text-blue-400 hover:text-blue-300 text-xl font-medium mt-4 mb-2 text-center">
-                        Partner 4
-                    </h3>
-                </a>
-            </div>
-            <div class="partner-card bg-gray-700 p-6 rounded-lg shadow-md hover:bg-gray-600">
-                <a href="https://www.partner4.com" target="_blank" rel="noopener noreferrer" class="block">
-                    <img src="https://via.placeholder.com/150" alt="Partner 4" class="partner-image">
-                    <h3 class="text-blue-400 hover:text-blue-300 text-xl font-medium mt-4 mb-2 text-center">
-                        Partner 4
-                    </h3>
-                </a>
-            </div>
-            <div class="partner-card bg-gray-700 p-6 rounded-lg shadow-md hover:bg-gray-600">
-                <a href="https://www.partner4.com" target="_blank" rel="noopener noreferrer" class="block">
-                    <img src="https://via.placeholder.com/150" alt="Partner 4" class="partner-image">
-                    <h3 class="text-blue-400 hover:text-blue-300 text-xl font-medium mt-4 mb-2 text-center">
-                        Partner 4
-                    </h3>
-                </a>
-            </div>
-            <div class="partner-card bg-gray-700 p-6 rounded-lg shadow-md hover:bg-gray-600">
-                <a href="https://www.partner4.com" target="_blank" rel="noopener noreferrer" class="block">
-                    <img src="https://via.placeholder.com/150" alt="Partner 4" class="partner-image">
-                    <h3 class="text-blue-400 hover:text-blue-300 text-xl font-medium mt-4 mb-2 text-center">
-                        Partner 4
-                    </h3>
-                </a>
-            </div>
-            <div class="partner-card bg-gray-700 p-6 rounded-lg shadow-md hover:bg-gray-600">
-                <a href="https://www.partner4.com" target="_blank" rel="noopener noreferrer" class="block">
-                    <img src="https://via.placeholder.com/150" alt="Partner 4" class="partner-image">
-                    <h3 class="text-blue-400 hover:text-blue-300 text-xl font-medium mt-4 mb-2 text-center">
-                        Partner 4
-                    </h3>
-                </a>
-            </div>
-            <div class="partner-card bg-gray-700 p-6 rounded-lg shadow-md hover:bg-gray-600">
-                <a href="https://www.partner4.com" target="_blank" rel="noopener noreferrer" class="block">
-                    <img src="https://via.placeholder.com/150" alt="Partner 4" class="partner-image">
-                    <h3 class="text-blue-400 hover:text-blue-300 text-xl font-medium mt-4 mb-2 text-center">
-                        Partner 4
-                    </h3>
-                </a>
-            </div>
-            <div class="partner-card bg-gray-700 p-6 rounded-lg shadow-md hover:bg-gray-600">
-                <a href="https://www.partner4.com" target="_blank" rel="noopener noreferrer" class="block">
-                    <img src="https://via.placeholder.com/150" alt="Partner 4" class="partner-image">
-                    <h3 class="text-blue-400 hover:text-blue-300 text-xl font-medium mt-4 mb-2 text-center">
-                        Partner 4
-                    </h3>
-                </a>
-            </div>
-            <div class="partner-card bg-gray-700 p-6 rounded-lg shadow-md hover:bg-gray-600">
-                <a href="https://www.partner4.com" target="_blank" rel="noopener noreferrer" class="block">
-                    <img src="https://via.placeholder.com/150" alt="Partner 4" class="partner-image">
-                    <h3 class="text-blue-400 hover:text-blue-300 text-xl font-medium mt-4 mb-2 text-center">
-                        Partner 4
-                    </h3>
-                </a>
-            </div>
-            <div class="partner-card bg-gray-700 p-6 rounded-lg shadow-md hover:bg-gray-600">
-                <a href="https://www.partner4.com" target="_blank" rel="noopener noreferrer" class="block">
-                    <img src="https://via.placeholder.com/150" alt="Partner 4" class="partner-image">
-                    <h3 class="text-blue-400 hover:text-blue-300 text-xl font-medium mt-4 mb-2 text-center">
-                        Partner 4
-                    </h3>
-                </a>
-            </div>
-            <div class="partner-card bg-gray-700 p-6 rounded-lg shadow-md hover:bg-gray-600">
-                <a href="https://www.partner4.com" target="_blank" rel="noopener noreferrer" class="block">
-                    <img src="https://via.placeholder.com/150" alt="Partner 4" class="partner-image">
-                    <h3 class="text-blue-400 hover:text-blue-300 text-xl font-medium mt-4 mb-2 text-center">
-                        Partner 4
-                    </h3>
-                </a>
-            </div>
-            <div class="partner-card bg-gray-700 p-6 rounded-lg shadow-md hover:bg-gray-600">
-                <a href="https://www.partner4.com" target="_blank" rel="noopener noreferrer" class="block">
-                    <img src="https://via.placeholder.com/150" alt="Partner 4" class="partner-image">
-                    <h3 class="text-blue-400 hover:text-blue-300 text-xl font-medium mt-4 mb-2 text-center">
-                        Partner 4
-                    </h3>
-                </a>
-            </div>
-            <div class="partner-card bg-gray-700 p-6 rounded-lg shadow-md hover:bg-gray-600">
-                <a href="https://www.partner4.com" target="_blank" rel="noopener noreferrer" class="block">
-                    <img src="https://via.placeholder.com/150" alt="Partner 4" class="partner-image">
-                    <h3 class="text-blue-400 hover:text-blue-300 text-xl font-medium mt-4 mb-2 text-center">
-                        Partner 4
-                    </h3>
-                </a>
-            </div>
-            <div class="partner-card bg-gray-700 p-6 rounded-lg shadow-md hover:bg-gray-600">
-                <a href="https://www.partner4.com" target="_blank" rel="noopener noreferrer" class="block">
-                    <img src="https://via.placeholder.com/150" alt="Partner 4" class="partner-image">
-                    <h3 class="text-blue-400 hover:text-blue-300 text-xl font-medium mt-4 mb-2 text-center">
-                        Partner 4
-                    </h3>
-                </a>
-            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
 
-            <div class="partner-card bg-gray-700 p-6 rounded-lg shadow-md hover:bg-gray-600">
-                <a href="https://www.partner4.com" target="_blank" rel="noopener noreferrer" class="block">
-                    <img src="https://via.placeholder.com/150" alt="Partner 4" class="partner-image">
-                    <h3 class="text-blue-400 hover:text-blue-300 text-xl font-medium mt-4 mb-2 text-center">
-                        Partner 4
-                    </h3>
-                </a>
-            </div>
-            <div class="partner-card bg-gray-700 p-6 rounded-lg shadow-md hover:bg-gray-600">
-                <a href="https://www.partner4.com" target="_blank" rel="noopener noreferrer" class="block">
-                    <img src="https://via.placeholder.com/150" alt="Partner 4" class="partner-image">
-                    <h3 class="text-blue-400 hover:text-blue-300 text-xl font-medium mt-4 mb-2 text-center">
-                        Partner 4
-                    </h3>
-                </a>
-            </div>
-            <div class="partner-card bg-gray-700 p-6 rounded-lg shadow-md hover:bg-gray-600">
-                <a href="https://www.partner4.com" target="_blank" rel="noopener noreferrer" class="block">
-                    <img src="https://via.placeholder.com/150" alt="Partner 4" class="partner-image">
-                    <h3 class="text-blue-400 hover:text-blue-300 text-xl font-medium mt-4 mb-2 text-center">
-                        Partner 4
-                    </h3>
-                </a>
-            </div>
-            <div class="partner-card bg-gray-700 p-6 rounded-lg shadow-md hover:bg-gray-600">
-                <a href="https://www.partner4.com" target="_blank" rel="noopener noreferrer" class="block">
-                    <img src="https://via.placeholder.com/150" alt="Partner 4" class="partner-image">
-                    <h3 class="text-blue-400 hover:text-blue-300 text-xl font-medium mt-4 mb-2 text-center">
-                        Partner 4
-                    </h3>
-                </a>
-            </div>
+                <div class="partner-card bg-gray-700 p-6 rounded-lg shadow-md hover:bg-gray-600">
+                    <a href="http://192.168.10.14" target="_blank" rel="noopener noreferrer" class="block">
 
-            <div class="partner-card bg-gray-700 p-6 rounded-lg shadow-md hover:bg-gray-600">
-                <a href="https://www.partner4.com" target="_blank" rel="noopener noreferrer" class="block">
-                    <img src="https://via.placeholder.com/150" alt="Partner 4" class="partner-image">
-                    <h3 class="text-blue-400 hover:text-blue-300 text-xl font-medium mt-4 mb-2 text-center">
-                        Partner 4
-                    </h3>
-                </a>
-            </div>
+                        <img src="https://play-lh.googleusercontent.com/bl1alxwGdhdZPfjGc-h-vtj2NIWHzgRZEYUd5GVTury6RLYRhpYepuly96xdLeFE1w" alt="Partner 2" class="partner-image">
+                        <h3 class="text-blue-400 hover:text-blue-300 text-xl font-medium mt-4 mb-2 text-center">
+                            UnionBank
+                        </h3>
+                    </a>
+                </div>
 
-            <div class="partner-card bg-gray-700 p-6 rounded-lg shadow-md hover:bg-gray-600">
-                <a href="https://www.partner4.com" target="_blank" rel="noopener noreferrer" class="block">
-                    <img src="https://via.placeholder.com/150" alt="Partner 4" class="partner-image">
-                    <h3 class="text-blue-400 hover:text-blue-300 text-xl font-medium mt-4 mb-2 text-center">
-                        Partner 4
-                    </h3>
-                </a>
-            </div>
-            <div class="partner-card bg-gray-700 p-6 rounded-lg shadow-md hover:bg-gray-600">
-                <a href="https://www.partner4.com" target="_blank" rel="noopener noreferrer" class="block">
-                    <img src="https://via.placeholder.com/150" alt="Partner 4" class="partner-image">
-                    <h3 class="text-blue-400 hover:text-blue-300 text-xl font-medium mt-4 mb-2 text-center">
-                        Partner 4
-                    </h3>
-                </a>
-            </div>
+                <div class="partner-card bg-gray-700 p-6 rounded-lg shadow-md hover:bg-gray-600">
+                    <a href="http://192.168.10.14" target="_blank" rel="noopener noreferrer" class="block">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9fY0bbBO2bZf0fnHGIWmOH96n_3MOhn2jhw&s" alt="Partner 2" class="partner-image">
+                        <h3 class="text-blue-400 hover:text-blue-300 text-xl font-medium mt-4 mb-2 text-center">
+                            Tiago Shop
+                        </h3>
+                    </a>
+                </div>
 
-            <div class="partner-card bg-gray-700 p-6 rounded-lg shadow-md hover:bg-gray-600">
-                <a href="https://www.partner4.com" target="_blank" rel="noopener noreferrer" class="block">
-                    <img src="https://via.placeholder.com/150" alt="Partner 4" class="partner-image">
-                    <h3 class="text-blue-400 hover:text-blue-300 text-xl font-medium mt-4 mb-2 text-center">
-                        Partner 4
-                    </h3>
-                </a>
-            </div>
-            <div class="partner-card bg-gray-700 p-6 rounded-lg shadow-md hover:bg-gray-600">
-                <a href="https://www.partner4.com" target="_blank" rel="noopener noreferrer" class="block">
-                    <img src="https://via.placeholder.com/150" alt="Partner 4" class="partner-image">
-                    <h3 class="text-blue-400 hover:text-blue-300 text-xl font-medium mt-4 mb-2 text-center">
-                        Partner 4
-                    </h3>
-                </a>
-            </div>
+                <div class="partner-card bg-gray-700 p-6 rounded-lg shadow-md hover:bg-gray-600">
+                    <a href="https://www.partner3.com" target="_blank" rel="noopener noreferrer" class="block">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ39qYlmLdxPRUuD5IGksPprHadjPL-zJeung&s" alt="Partner 3" class="partner-image">
+                        <h3 class="text-blue-400 hover:text-blue-300 text-xl font-medium mt-4 mb-2 text-center">
+                            MetroBank
+                        </h3>
+                    </a>
+                </div>
+                <div class="partner-card bg-gray-700 p-6 rounded-lg shadow-md hover:bg-gray-600">
+                    <a href="https://www.partner4.com" target="_blank" rel="noopener noreferrer" class="block">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSg2uwh42OqM-KFYVhxkfSKchJMd3a6njuOjQ&s" alt="Partner 4" class="partner-image">
+                        <h3 class="text-blue-400 hover:text-blue-300 text-xl font-medium mt-4 mb-2 text-center">
+                            Partner 4
+                        </h3>
+                    </a>
+                </div>
+                <div class="partner-card bg-gray-700 p-6 rounded-lg shadow-md hover:bg-gray-600">
+                    <a href="https://www.partner4.com" target="_blank" rel="noopener noreferrer" class="block">
+                        <img src="
+                https://cafereyes-onlineordering.devournow.com/img/cafereyes-logo.png" alt="Partner 4" class="partner-image">
+                        <h3 class="text-blue-400 hover:text-blue-300 text-xl font-medium mt-4 mb-2 text-center">
+                            Partner 4
+                        </h3>
+                    </a>
+                </div>
 
-            <div class="partner-card bg-gray-700 p-6 rounded-lg shadow-md hover:bg-gray-600">
-                <a href="https://www.partner4.com" target="_blank" rel="noopener noreferrer" class="block">
-                    <img src="https://via.placeholder.com/150" alt="Partner 4" class="partner-image">
-                    <h3 class="text-blue-400 hover:text-blue-300 text-xl font-medium mt-4 mb-2 text-center">
-                        Partner 4
-                    </h3>
-                </a>
+                <!-- Add more partner cards as needed -->
             </div>
-
-            <div class="partner-card bg-gray-700 p-6 rounded-lg shadow-md hover:bg-gray-600">
-                <a href="https://www.partner4.com" target="_blank" rel="noopener noreferrer" class="block">
-                    <img src="https://via.placeholder.com/150" alt="Partner 4" class="partner-image">
-                    <h3 class="text-blue-400 hover:text-blue-300 text-xl font-medium mt-4 mb-2 text-center">
-                        Partner 4
-                    </h3>
-                </a>
-            </div>
-            <div class="partner-card bg-gray-700 p-6 rounded-lg shadow-md hover:bg-gray-600">
-                <a href="https://www.partner4.com" target="_blank" rel="noopener noreferrer" class="block">
-                    <img src="https://via.placeholder.com/150" alt="Partner 4" class="partner-image">
-                    <h3 class="text-blue-400 hover:text-blue-300 text-xl font-medium mt-4 mb-2 text-center">
-                        Partner 4
-                    </h3>
-                </a>
-            </div>
-
-            <!-- Add more partner cards as needed -->
         </div>
     </div>
-</div>
-
-
 
 </body>
+
 </html>
