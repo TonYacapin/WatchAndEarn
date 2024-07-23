@@ -26,7 +26,7 @@
 
         .partner-image {
             width: 100%;
-            height: auto;
+            height: 200px;
             object-fit: cover;
         }
 
@@ -48,6 +48,17 @@
             color: #e2e8f0;
             /* light text */
         }
+
+        .partner-card h3 {
+            margin: 0;
+        }
+
+        .partner-card a {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
     </style>
 </head>
 
@@ -63,8 +74,8 @@
 
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
 
-                <div class="partner-card bg-gray-700 p-6 rounded-lg shadow-md hover:bg-gray-600">
-                    <a href="http://192.168.10.14" target="_blank" rel="noopener noreferrer" class="block">
+            <div class="partner-card bg-gray-700 p-6 rounded-lg shadow-md hover:bg-gray-600">
+                    <a href="http://192.168.10.18:3000" target="_blank" rel="noopener noreferrer" class="block">
 
                         <img src="https://lh3.googleusercontent.com/drive-viewer/AKGpihauWC5niuS9eYTdZ0lYO6svwmlUpmxk52IVrPFxl8mCyZ2ATUISNQ5X7dvipOC8U7b0g5lpZOKSyPnWtTfWTOF9BQz2I6PDyA=s1600-rw-v1" alt="Partner 2" class="partner-image">
                         <h3 class="text-blue-400 hover:text-blue-300 text-xl font-medium mt-4 mb-2 text-center">
@@ -74,7 +85,7 @@
                 </div>
 
                 <div class="partner-card bg-gray-700 p-6 rounded-lg shadow-md hover:bg-gray-600">
-                    <a href="http://192.168.10.13" target="_blank" rel="noopener noreferrer" class="block">
+                    <a href="http://192.168.10.17/login" target="_blank" rel="noopener noreferrer" class="block">
                         <img src="https://lh3.googleusercontent.com/drive-viewer/AKGpihaDxBGbto1NNmq_qfG_cPjgxX2wmdiNwZzJVcCvPywTS1IOEOjZ-rGGluedDpVURKFr1lVgoH0vVSuxlxPlOAPKSZZXwkQrflw=s2560" alt="Partner 2" class="partner-image">
                         <h3 class="text-blue-400 hover:text-blue-300 text-xl font-medium mt-4 mb-2 text-center">
                             Clickers
@@ -83,7 +94,7 @@
                 </div>
 
                 <div class="partner-card bg-gray-700 p-6 rounded-lg shadow-md hover:bg-gray-600">
-                    <a href="http://192.168.10.15" target="_blank" rel="noopener noreferrer" class="block">
+                    <a href="http://192.168.10.22" target="_blank" rel="noopener noreferrer" class="block">
                         <img src="https://lh3.googleusercontent.com/drive-viewer/AKGpihb-M2lORX_G1fWat1EBVpnwJv9vDsICg2wJyR3vh2nX1qp4COY2bB13rthxwHhv1_0eIroHnA7KwC5fD9xFTO5k4_OifEuuMSs=s2560" alt="Partner 3" class="partner-image">
                         <h3 class="text-blue-400 hover:text-blue-300 text-xl font-medium mt-4 mb-2 text-center">
                             INGCO
@@ -91,7 +102,7 @@
                     </a>
                 </div>
                 <div class="partner-card bg-gray-700 p-6 rounded-lg shadow-md hover:bg-gray-600">
-                    <a href="https://www.partner4.com" target="_blank" rel="noopener noreferrer" class="block">
+                    <a href="http://192.168.10.19" target="_blank" rel="noopener noreferrer" class="block">
                         <img src="https://lh3.googleusercontent.com/drive-viewer/AKGpiha829N9T0J1NtjV-FRILZBlgSjqOLYc0krjQUFiu0wJgzD9CtpWRjFsEztjaVXS7aDrbYfqCpXDXJkOT0-3Hlv4WQ_FwcWZLGQ=s2560" alt="Partner 4" class="partner-image">
                         <h3 class="text-blue-400 hover:text-blue-300 text-xl font-medium mt-4 mb-2 text-center">
                             KFC
@@ -99,7 +110,7 @@
                     </a>
                 </div>
                 <div class="partner-card bg-gray-700 p-6 rounded-lg shadow-md hover:bg-gray-600">
-                    <a href="https://www.partner4.com" target="_blank" rel="noopener noreferrer" class="block">
+                    <a href="http://192.168.10.26" target="_blank" rel="noopener noreferrer" class="block">
                         <img src="https://lh3.googleusercontent.com/drive-viewer/AKGpihb9RhpSZ7pO1QRUcB-P5nwoAEFPnXLnUxgC8n6zHVjFEjLHSLV7t6sOYU-vFZ06tCgpv3FsqxkWe8-F4rE3Crav8wSxPtJFADY=s1600-rw-v1" alt="Partner 4" class="partner-image">
                         <h3 class="text-blue-400 hover:text-blue-300 text-xl font-medium mt-4 mb-2 text-center">
                             Shoepatoes
@@ -116,7 +127,7 @@
                 </div>
 
                 <div class="partner-card bg-gray-700 p-6 rounded-lg shadow-md hover:bg-gray-600">
-                    <a href="https://www.partner4.com" target="_blank" rel="noopener noreferrer" class="block">
+                    <a href="http://192.168.10.36" target="_blank" rel="noopener noreferrer" class="block">
                         <img src="https://lh3.googleusercontent.com/drive-viewer/AKGpihakHx2jbUQhGogOx2TypclhYsQyjOdfPK1GcLqQiyaO_ajwXVRxpWdTPOFJ5NRitXsMIFAYALc_0bD0OifunT1DOREdSk1xdw=s1600-rw-v1" alt="Partner 4" class="partner-image">
                         <h3 class="text-blue-400 hover:text-blue-300 text-xl font-medium mt-4 mb-2 text-center">
                             Medpoint
@@ -125,7 +136,7 @@
                 </div>
 
                 <div class="partner-card bg-gray-700 p-6 rounded-lg shadow-md hover:bg-gray-600">
-                    <a href="https://www.partner4.com" target="_blank" rel="noopener noreferrer" class="block">
+                    <a href="http://192.168.10.23/moto" target="_blank" rel="noopener noreferrer" class="block">
                         <img src="https://lh3.googleusercontent.com/drive-viewer/AKGpihZ3QcV5PSYZQ58VdrOvhaiaLemjDeUCWEcTXTzF4wU-B6epMAEFmoFSJex-3LpoTkLAoLz83woVZOeOvND0wgIDVsRCEHOtgkE=s1600-rw-v1" alt="Partner 4" class="partner-image">
                         <h3 class="text-blue-400 hover:text-blue-300 text-xl font-medium mt-4 mb-2 text-center">
                             MotorTrade
@@ -134,7 +145,7 @@
                 </div>
 
                 <div class="partner-card bg-gray-700 p-6 rounded-lg shadow-md hover:bg-gray-600">
-                    <a href="https://www.partner4.com" target="_blank" rel="noopener noreferrer" class="block">
+                    <a href="http://192.168.10.24" target="_blank" rel="noopener noreferrer" class="block">
                         <img src="https://lh3.googleusercontent.com/drive-viewer/AKGpihYpa1EwBk07_DKcqn2hP4umQOpm5oBopshH8_YRLcmWqZBn0jMIePOcxeLY4jtoY2BUGQTgbLr5PPjrQR4-IhRRcg0Ka2hzw7U=s2560" alt="Partner 4" class="partner-image">
                         <h3 class="text-blue-400 hover:text-blue-300 text-xl font-medium mt-4 mb-2 text-center">
                             National BookStore
@@ -143,7 +154,7 @@
                 </div>
 
                 <div class="partner-card bg-gray-700 p-6 rounded-lg shadow-md hover:bg-gray-600">
-                    <a href="https://www.partner4.com" target="_blank" rel="noopener noreferrer" class="block">
+                    <a href="http://192.168.10.21" target="_blank" rel="noopener noreferrer" class="block">
                         <img src="https://lh3.googleusercontent.com/drive-viewer/AKGpihZUZ73GrMwKjtujqatK6sphQoghT8G9hd0R4q-2Sm0jmeyXE7o0NQLYVFuJUhMpo3zg5oB_FnmD8yMtNYAekn4kGV57k1LyYRw=s1600-rw-v1" alt="Partner 4" class="partner-image">
                         <h3 class="text-blue-400 hover:text-blue-300 text-xl font-medium mt-4 mb-2 text-center">
                             OhMart
@@ -160,7 +171,7 @@
                     </a>
                 </div>
                 <div class="partner-card bg-gray-700 p-6 rounded-lg shadow-md hover:bg-gray-600">
-                    <a href="https://www.partner4.com" target="_blank" rel="noopener noreferrer" class="block">
+                    <a href="http://192.168.10.37" target="_blank" rel="noopener noreferrer" class="block">
                         <img src="https://lh3.googleusercontent.com/drive-viewer/AKGpihbGvqcQ5P4MentLtMxuTV1IbQ_JyRKM3ruPJq5K0U5M5jlW6JosPzrxGnwKZhac5J0i-rM0JY0tcIfXZYIwnXdb13jZuMSfKw=s2560" alt="Partner 4" class="partner-image">
                         <h3 class="text-blue-400 hover:text-blue-300 text-xl font-medium mt-4 mb-2 text-center">
                             ParaPo
@@ -168,7 +179,7 @@
                     </a>
                 </div>
                 <div class="partner-card bg-gray-700 p-6 rounded-lg shadow-md hover:bg-gray-600">
-                    <a href="https://www.partner4.com" target="_blank" rel="noopener noreferrer" class="block">
+                    <a href="http://192.168.10.25" target="_blank" rel="noopener noreferrer" class="block">
                         <img src="https://lh3.googleusercontent.com/drive-viewer/AKGpihZTY3jEoTmyd9QjgpvMbOmgPYYBfioCTDpy-cgdH61jg2p2u43pvVgga_wXguWllZ7qXTU4UKL8-qVIhKUA0MQQp28W3OHhwQ=s1600-rw-v1" alt="Partner 4" class="partner-image">
                         <h3 class="text-blue-400 hover:text-blue-300 text-xl font-medium mt-4 mb-2 text-center">
                             Savemore
@@ -179,12 +190,12 @@
                     <a href="https://www.partner4.com" target="_blank" rel="noopener noreferrer" class="block">
                         <img src="https://lh3.googleusercontent.com/drive-viewer/AKGpihbwJYIeI6UvgqyGjMxLmD03Tc-KlhsQKePDtak9J_VTJkTg9kx_vRv-knjGfI1kCuXe2pRvvSqsiqBaubJomFBpmJoEboPlfA=s2560" alt="Partner 4" class="partner-image">
                         <h3 class="text-blue-400 hover:text-blue-300 text-xl font-medium mt-4 mb-2 text-center">
-                            Ske Ease
+                            Sky Ease
                         </h3>
                     </a>
                 </div>
                 <div class="partner-card bg-gray-700 p-6 rounded-lg shadow-md hover:bg-gray-600">
-                    <a href="https://www.partner4.com" target="_blank" rel="noopener noreferrer" class="block">
+                    <a href="tiagoshop.vercel.app" target="_blank" rel="noopener noreferrer" class="block">
                         <img src="https://lh3.googleusercontent.com/drive-viewer/AKGpihZo9PsLSVwUkvoH3MVrh9zXV1KG-vejUx8Mk0oWN2N8CDIyJMdx6wa4BmLt9DoMXTFGzEc9SK627CtP72n7ryHWAFTe3SwbRy4=s2560" alt="Partner 4" class="partner-image">
                         <h3 class="text-blue-400 hover:text-blue-300 text-xl font-medium mt-4 mb-2 text-center">
                             TiagoShop
@@ -192,7 +203,7 @@
                     </a>
                 </div>
                 <div class="partner-card bg-gray-700 p-6 rounded-lg shadow-md hover:bg-gray-600">
-                    <a href="https://www.partner4.com" target="_blank" rel="noopener noreferrer" class="block">
+                    <a href="http://192.168.10.38" target="_blank" rel="noopener noreferrer" class="block">
                         <img src="https://lh3.googleusercontent.com/drive-viewer/AKGpihY9KurMpnkIuI3TTBxEv-1kwIiHSd5HiLUzC5wutAL19_4yhRS-nXg2xdchwOy6CBw0Z6Gleq7Ck7H2lw2B6m7PrDnXk4fDlHE=s2560" alt="Partner 4" class="partner-image">
                         <h3 class="text-blue-400 hover:text-blue-300 text-xl font-medium mt-4 mb-2 text-center">
                             Toyota
@@ -200,7 +211,7 @@
                     </a>
                 </div>
                 <div class="partner-card bg-gray-700 p-6 rounded-lg shadow-md hover:bg-gray-600">
-                    <a href="https://www.partner4.com" target="_blank" rel="noopener noreferrer" class="block">
+                    <a href="http://192.168.10.22" target="_blank" rel="noopener noreferrer" class="block">
                         <img src="https://lh3.googleusercontent.com/drive-viewer/AKGpihZmtxkprbj5PSjQbz0BB9iuGw8GgpmsjpyffOx7fx1-Ek1dtrtEEdLcHJbgd-7icYlbezH7d682utLSd_8AEJJfUQBRKwRlNNE=s1600-rw-v1" alt="Partner 4" class="partner-image">
                         <h3 class="text-blue-400 hover:text-blue-300 text-xl font-medium mt-4 mb-2 text-center">
                             Tx
@@ -208,7 +219,7 @@
                     </a>
                 </div>
                 <div class="partner-card bg-gray-700 p-6 rounded-lg shadow-md hover:bg-gray-600">
-                    <a href="https://www.partner4.com" target="_blank" rel="noopener noreferrer" class="block">
+                    <a href="http://192.168.10.14" target="_blank" rel="noopener noreferrer" class="block">
                         <img src="https://lh3.googleusercontent.com/drive-viewer/AKGpihZ4Hu9tf9m0wO3AcMVwywLiE1Y5Wt8zUkzlkV-vV2gSINQerxUxcwzq7CSO7hta0P1u9ZUHqNLaPSzkFLC6JEPGE7Am34S9qw=s2560" alt="Partner 4" class="partner-image">
                         <h3 class="text-blue-400 hover:text-blue-300 text-xl font-medium mt-4 mb-2 text-center">
                            UnionBank
@@ -216,7 +227,7 @@
                     </a>
                 </div>
                 <div class="partner-card bg-gray-700 p-6 rounded-lg shadow-md hover:bg-gray-600">
-                    <a href="https://www.partner4.com" target="_blank" rel="noopener noreferrer" class="block">
+                    <a href="http://192.168.10.24" target="_blank" rel="noopener noreferrer" class="block">
                         <img src="https://lh3.googleusercontent.com/drive-viewer/AKGpihY83xhz0EcG57SuN7z6Q9Aji7vr5HJdaznW0InzKCR2DOKxUEgdVHKKwNmBp56ywkjuuLlIMZxXkImfvmXf3tFdEqRNSwthwbU=s1600-rw-v1" alt="Partner 4" class="partner-image">
                         <h3 class="text-blue-400 hover:text-blue-300 text-xl font-medium mt-4 mb-2 text-center">
                             Watsons
