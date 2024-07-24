@@ -45,14 +45,14 @@ class Auth extends CI_Controller
     {
         $this->form_validation->set_rules('username', 'Username', 'required');
         $this->form_validation->set_rules('password', 'Password', 'required');
-    
+
         if ($this->form_validation->run() === FALSE) {
             $this->load->view('login');
         } else {
             $username = $this->input->post('username');
             $password = $this->input->post('password');
             $user = $this->user_model->login($username, $password);
-    
+
             if ($user) {
                 if ($user->role == 'Banned') {
                     $this->session->set_flashdata('error', 'Your account has been banned.');
@@ -72,7 +72,7 @@ class Auth extends CI_Controller
             }
         }
     }
-    
+
 
     public function logout()
     {
@@ -120,11 +120,12 @@ class Auth extends CI_Controller
         }
     }
 
-    public function select_video() {
+    public function select_video()
+    {
         $data['videos'] = $this->video_model->get_all_videos();
         $this->load->view('select_video', $data);
     }
-    
+
 
     // public function watch_video()
     // {
@@ -145,11 +146,12 @@ class Auth extends CI_Controller
     //     }
     // }
 
-    public function watch_video($video_id) {
+    public function watch_video($video_id)
+    {
         $data['video'] = $this->video_model->get_video($video_id);
         $this->load->view('watch_video', $data);
     }
-    
+
 
     public function earn_points($video_id)
     {
@@ -189,29 +191,29 @@ class Auth extends CI_Controller
         $user_id = $this->session->userdata('user_id');
         $account_number = $this->input->post('account_number');
         $points = $this->input->post('points');
-    
+
         // Check if points are greater than zero
         if ($points <= 0) {
             $this->session->set_flashdata('error', 'Points should be greater than zero to convert to cash.');
             redirect('auth/convert_points_to_cash');
         }
-    
+
         // Convert points to cash (e.g., 1 point = 0.1 cash)
         $cash_amount = $points * 0.1;
-    
+
         // Make UnionBank transfer
         $debit_account = '000000004'; // Replace with your debit account number
         $credit_account = $account_number;
         $transfer_response = $this->make_unionbank_transfer($debit_account, $credit_account, $cash_amount);
-    
+
         // Check if transfer was successful
         if ($transfer_response['success']) {
             // Save transaction
             $this->user_model->add_transaction($user_id, $points, $cash_amount);
-    
+
             // Deduct points from user
             $this->user_model->update_points($user_id, -$points);
-    
+
             // Flash message and redirect
             $this->session->set_flashdata('success', 'Points converted to cash successfully and transferred to your account!');
             redirect('auth/dashboard');
@@ -221,56 +223,56 @@ class Auth extends CI_Controller
             redirect('auth/dashboard');
         }
     }
-    
+
 
     public function convert_points_to_cash()
     {
         $user_id = $this->session->userdata('user_id');
         $data['user'] = $this->user_model->get_user_by_id($user_id);
-    
+
         $this->load->view('convert_points_to_cash', $data);
     }
-    
- private function make_unionbank_transfer($debit, $credit, $amount)
-{
-    $url = 'http://192.168.10.14:3001/api/unionbank/transfertransaction'; // Replace with your UnionBank API endpoint URL
-    $api_key = '$2b$10$mjyKI2Um/mnwAlIv35YnPeQdpjx.YwXl2ef2/Bp4h3CJZITkh11YK'; // Replace with your UnionBank API key
 
-    $data = array(
-        'debitAccount' => $debit,
-        'creditAccount' => $credit,
-        'amount' => $amount
-    );
+    private function make_unionbank_transfer($debit, $credit, $amount)
+    {
+        $url = 'http://192.168.10.14:3001/api/unionbank/transfertransaction'; // Replace with your UnionBank API endpoint URL
+        $api_key = '$2b$10$E1ii2h./jZ9g9ZMkge1DY.yUXeFoegjveJ2hORcqwo5oT0Kv.aBP.'; // Replace with your UnionBank API key
 
-    // Initialize cURL session
-    $ch = curl_init($url);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_POST, true);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
-    curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-        'Content-Type: application/json',
-        'Authorization: Bearer ' . $api_key
-    ));
+        $data = array(
+            'debitAccount' => $debit,
+            'creditAccount' => $credit,
+            'amount' => $amount
+        );
 
-    // Execute cURL session
-    $response = curl_exec($ch);
+        // Initialize cURL session
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+            'Content-Type: application/json',
+            'Authorization: Bearer ' . $api_key
+        ));
 
-    // Check for errors
-    if (curl_errno($ch)) {
-        $error_message = curl_error($ch);
+        // Execute cURL session
+        $response = curl_exec($ch);
+
+        // Check for errors
+        if (curl_errno($ch)) {
+            $error_message = curl_error($ch);
+            curl_close($ch);
+            return array('success' => false, 'error' => $error_message);
+        }
+
+        // Close cURL session
         curl_close($ch);
-        return array('success' => false, 'error' => $error_message);
+
+        // Decode the JSON response
+        $decoded_response = json_decode($response, true);
+
+        // Return the decoded response
+        return $decoded_response;
     }
-
-    // Close cURL session
-    curl_close($ch);
-
-    // Decode the JSON response
-    $decoded_response = json_decode($response, true);
-
-    // Return the decoded response
-    return $decoded_response;
-}
 
     public function add_video()
     {
@@ -389,33 +391,33 @@ class Auth extends CI_Controller
             }
         }
     }
-public function ban_user($user_id)
-{
-    if (!$this->session->userdata('logged_in') || $this->session->userdata('role') !== 'admin') {
-        redirect('auth');
+    public function ban_user($user_id)
+    {
+        if (!$this->session->userdata('logged_in') || $this->session->userdata('role') !== 'admin') {
+            redirect('auth');
+        }
+
+        if ($this->user_model->ban_user($user_id)) {
+            $this->session->set_flashdata('success', 'User banned successfully.');
+        } else {
+            $this->session->set_flashdata('error', 'Failed to ban user.');
+        }
+        redirect('auth/list_users');
     }
 
-    if ($this->user_model->ban_user($user_id)) {
-        $this->session->set_flashdata('success', 'User banned successfully.');
-    } else {
-        $this->session->set_flashdata('error', 'Failed to ban user.');
-    }
-    redirect('auth/list_users');
-}
+    public function unban_user($user_id)
+    {
+        if (!$this->session->userdata('logged_in') || $this->session->userdata('role') !== 'admin') {
+            redirect('auth');
+        }
 
-public function unban_user($user_id)
-{
-    if (!$this->session->userdata('logged_in') || $this->session->userdata('role') !== 'admin') {
-        redirect('auth');
+        if ($this->user_model->unban_user($user_id)) {
+            $this->session->set_flashdata('success', 'User unbanned successfully.');
+        } else {
+            $this->session->set_flashdata('error', 'Failed to unban user.');
+        }
+        redirect('auth/list_users');
     }
-
-    if ($this->user_model->unban_user($user_id)) {
-        $this->session->set_flashdata('success', 'User unbanned successfully.');
-    } else {
-        $this->session->set_flashdata('error', 'Failed to unban user.');
-    }
-    redirect('auth/list_users');
-}
     public function edit_user($user_id)
     {
         if (!$this->session->userdata('logged_in')) {
@@ -447,7 +449,7 @@ public function unban_user($user_id)
         if (!$this->session->userdata('logged_in')) {
             redirect('auth');
         }
-    
+
         if ($this->user_model->ban_user($user_id)) {
             $this->session->set_flashdata('success', 'User has been banned successfully.');
         } else {
@@ -455,5 +457,4 @@ public function unban_user($user_id)
         }
         redirect('auth/list_users');
     }
-    
 }
